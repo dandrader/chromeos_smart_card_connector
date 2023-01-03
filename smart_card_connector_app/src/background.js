@@ -332,6 +332,13 @@ function createClientHandler(clientMessageChannel, clientOrigin) {
     goog.log.fine(logger, logMessage);
 }
 
+chrome.smartCardProviderPrivate.onEstablishContextRequested.addListener(
+    webapiEstablishContextListener);
+
+function webapiEstablishContextListener(requestId) {
+  console.log("webapi: SCardEstablishContext()");
+}
+
 /**
  * Sets global variables to be used by the main window (once it's opened).
  */
