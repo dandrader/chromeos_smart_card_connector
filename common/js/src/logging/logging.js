@@ -168,9 +168,10 @@ GSC.Logging.setupLogging = function() {
  * @return {!goog.log.Logger}
  */
 GSC.Logging.getLogger = function(name, opt_level) {
-  const logger = goog.log.getLogger(name, opt_level);
+  let logger = goog.log.getLogger(name);
   GSC.Logging.check(logger);
   goog.asserts.assert(logger);
+  goog.log.setLevel(logger, goog.log.Level.WARNING);
   return logger;
 };
 
